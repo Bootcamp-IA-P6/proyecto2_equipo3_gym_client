@@ -6,8 +6,8 @@ function HomePage() {
     <div className="homepage">
       {/* Botones arriba a la izquierda */}
       <div className="top-left-buttons">
-        <button className="btn">Admin</button>
-        <button className="btn">Users</button>
+        <button className="btn">Registro</button>
+        <button className="btn">Login</button>
       </div>
 
 {/* NUEVO: Título a la derecha */}

@@ -13,9 +13,9 @@
 .top-left-buttons {
   position: absolute;
   top: 60px;       /* Más abajo del borde superior */
-  left: 50px;      /* Más alejado del borde izquierdo */
+  right: 50px;      /* Más alejado del borde izquierdo */
   display: flex;
-  flex-direction: column; /* Uno debajo del otro (más espacio) */
+  /*flex-direction: column;  Uno debajo del otro (más espacio) */
   gap: 20px;       /* Separación entre un botón y otro */
   z-index: 10;
 }
@@ -23,14 +23,14 @@
 /* 4. Estilo de los botones (Más largos y elegantes) */
 .btn {
   padding: 15px 40px;      /* El 40px los hace más largos horizontalmente */
-  min-width: 200px;        /* Asegura que ambos midan lo mismo de largo */
+  min-width: 100px;        /* Asegura que ambos midan lo mismo de largo */
   background-color: #2DD4BF; /* Puedes cambiarlo por var(--accent) si lo definiste */
   color: white;
   border: none;
-  border-radius: 10px;     /* Bordes suavizados */
+  border-radius: 5px;     /* Bordes suavizados */
   cursor: pointer;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 12px;
   text-transform: uppercase;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Sombra para que resalten del fondo */
@@ -38,7 +38,7 @@
 
 .btn:hover {
   transform: scale(1.05);  /* Efecto de agrandado al pasar el mouse */
-  background-color: #0056b3;
+  background-color: #000000;
 }
 
 .title-group {
@@ -56,7 +56,7 @@
 .main-title {
   font-family: 'Anton', sans-serif;
   font-size: 90px;
-  color: #7FFF00;       /* Tu verde manzana */
+  color: #ffffff;       /* Tu verde manzana */
   margin: 0;            /* Quitamos márgenes que lo suben o bajan */
   line-height: 0.8;     /* Pegamos un poco más el texto */
   text-transform: uppercase;
