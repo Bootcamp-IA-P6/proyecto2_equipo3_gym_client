@@ -1,7 +1,7 @@
-import HomePage from "./components/HomePage/HomePage.jsx";
+import LoginPage from "./components/LoginPage/LoginPage.jsx";
 
 function App() {
-  return <HomePage />;
+  return <LoginPage />;
 }
 
 export default App;
