@@ -1,7 +1,8 @@
-import HomePage from "./components/HomePage/HomePage.jsx";
+//import HomePage from "./components/HomePage/HomePage.jsx";
+import AdminSidebar from "./components/AdminSidebar/AdminSidebar.jsx";
 
 function App() {
-  return <HomePage />;
+  return <AdminSidebar />;
 }
 
 export default App;
