@@ -10,6 +10,12 @@ function HomePage() {
         <button className="btn">Users</button>
       </div>
 
+{/* NUEVO: Título a la derecha */}
+  <div className="title-group">
+  <h1 className="main-title">Gimnasio Gym</h1>
+  <p className="subtitle">Bienvenido</p>
+</div>
+
       {/* Imagen centrada */}
       <div className="center-image">
         {/* CORRECCIÓN: Usa la variable 'imagenPortada' entre llaves */}
