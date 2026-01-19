@@ -1,4 +1,4 @@
-import imagenPortada from "../../assets/images/Portada.jpg"; // Esta es la variable
+import imagenPortada from "../../assets/images/Fondo.jpg"; // Esta es la variable
 import "./HomePage.css"; 
 
 function HomePage() {
