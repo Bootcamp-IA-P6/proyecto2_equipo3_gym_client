@@ -1,5 +1,6 @@
 import imagenPortada from "../../assets/images/Fondo.jpg"; // Esta es la variable
 import "./HomePage.css"; 
+import { Link } from 'react-router-dom'; // 1. Importamos Link para poder navegar
 
 function HomePage() {
   return (
@@ -7,7 +8,9 @@ function HomePage() {
       {/* Botones arriba a la izquierda */}
       <div className="top-left-buttons">
         <button className="btn">Registro</button>
-        <button className="btn">Login</button>
+       <Link to="/login">
+          <button className="btn">Login</button>
+        </Link>
       </div>
 
 {/* NUEVO: Título a la derecha */}
