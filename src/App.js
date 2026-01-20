@@ -1,10 +1,3 @@
-// import LoginPage from "./components/LoginPage/LoginPage.jsx";
-
-// function App() {
-//   return <LoginPage />;
-// }
-
-// export default App;
 
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
