@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import './AdminLayout.css';
+import './AdminSidebar.css';
 
 const AdminSidebar = () => {
-  // Estado para saber qué tabla mostrar: 'usuarios', 'clases' o 'entrenadores'
   const [view, setView] = useState('usuarios');
 
   return (
     <div className="admin-container">
-      {/* SIDEBAR - Siempre visible */}
       <aside className="sidebar">
         <h2 className="sidebar-logo">GYM<span>PRO</span></h2>
         <nav className="sidebar-nav">
@@ -33,10 +31,8 @@ const AdminSidebar = () => {
         </nav>
       </aside>
 
-      {/* CONTENIDO PRINCIPAL */}
       <main className="main-content">
         <header className="content-header">
-          {/* El título cambia según la vista seleccionada */}
           <h1>
             {view === 'usuarios' && "Panel de Usuarios"}
             {view === 'clases' && "Panel de Clases"}
@@ -59,25 +55,28 @@ const AdminSidebar = () => {
                   <th>Acciones</th>
                 </tr>
               )}
+              {/* Tabla Clases basada en tu DB Classes */}
               {view === 'clases' && (
                 <tr>
-                  <th>Profesor</th>
-                  <th>Clase</th>
-                  <th>Alumno</th>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Descripción</th>
+                  <th>Estado (Active)</th>
                   <th>Acciones</th>
                 </tr>
               )}
+              {/* Tabla Entrenadores basada en tu DB Trainers */}
               {view === 'entrenadores' && (
                 <tr>
-                  <th>Entrenador</th>
-                  <th>Clase Asignada</th>
-                  <th>Alumno</th>
+                  <th>ID Entrenador</th> {/* id int4 */}
+                  <th>ID Usuario</th> {/* user_id int4 */}
+                  <th>Especialidad</th> {/* specialty varchar */}
+                  <th>Estado</th> {/* is_active bool */}
                   <th>Acciones</th>
                 </tr>
               )}
             </thead>
             <tbody>
-              {/* Ejemplo de datos dinámicos según la vista */}
               {view === 'usuarios' && (
                 <tr>
                   <td>Juan Pérez</td>
@@ -86,21 +85,42 @@ const AdminSidebar = () => {
                   <td><button className="edit-btn">Editar</button></td>
                 </tr>
               )}
+
               {view === 'clases' && (
                 <tr>
-                  <td>Marcos Ruiz</td>
-                  <td>Boxeo</td>
-                  <td>Juan Pérez</td>
+                  <td>1</td>
+                  <td>Pilates</td>
+                  <td>Clase de pilates</td>
+                  <td><span className="status active">TRUE</span></td>
                   <td><button className="edit-btn">Editar</button></td>
                 </tr>
               )}
+
+              {/* Ejemplo con tus datos reales de Trainers */}
               {view === 'entrenadores' && (
-                <tr>
-                  <td>Jorge Carlos</td>
-                  <td>Musculación</td>
-                  <td>Juan Pérez</td>
-                  <td><button className="edit-btn">Editar</button></td>
-                </tr>
+                <>
+                  <tr>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>Pilates</td>
+                    <td><span className="status active">TRUE</span></td>
+                    <td><button className="edit-btn">Editar</button></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>Yoga</td>
+                    <td><span className="status active">TRUE</span></td>
+                    <td><button className="edit-btn">Editar</button></td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>2</td>
+                    <td>Yoga</td>
+                    <td><span className="status inactive">FALSE</span></td>
+                    <td><button className="edit-btn">Editar</button></td>
+                  </tr>
+                </>
               )}
             </tbody>
           </table>
