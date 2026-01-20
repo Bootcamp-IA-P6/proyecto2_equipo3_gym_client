@@ -107,3 +107,8 @@
   font-weight: bold;
   cursor: pointer;
 }
+.nav-item.active {
+  background-color: #2DD4BF;
+  color: #000;
+  font-weight: bold;
+}

@@ -10,7 +10,7 @@ const AdminSidebar = () => {
         <nav className="sidebar-nav">
           <button className="nav-item active">Usuarios</button>
           <button className="nav-item">Clases</button>
-          <button className="nav-item">Membresías</button>
+          <button className="nav-item">Entrenadores</button>
           <button className="nav-item">Reportes</button>
         </nav>
         <button className="logout-btn">Cerrar Sesión</button>
@@ -21,16 +21,17 @@ const AdminSidebar = () => {
         <header className="content-header">
           <h1>Panel de Usuarios</h1>
           <button className="add-btn">+ Nuevo Usuario</button>
+          <button className="add-btn">+ Registrar clases</button>
         </header>
 
         <section className="dashboard-card">
-          {/* Aquí es donde tu compañera luego conectará la tabla real */}
+          {/* Aquí es donde Gema luego conectará la tabla real */}
           <table className="admin-table">
             <thead>
               <tr>
                 <th>Nombre</th>
                 <th>Estado</th>
-                <th>Membresía</th>
+                <th>Entrenador</th>
                 <th>Acciones</th>
               </tr>
             </thead>
@@ -38,7 +39,7 @@ const AdminSidebar = () => {
               <tr>
                 <td>Juan Pérez</td>
                 <td><span className="status active">Activo</span></td>
-                <td>Premium</td>
+                <td>Jorge Carlos</td>
                 <td><button className="edit-btn">Editar</button></td>
               </tr>
             </tbody>
