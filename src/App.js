@@ -1,12 +1,18 @@
-//import HomePage from "./components/HomePage/HomePage.jsx";
-//import LoginPage from "./components/LoginPage/LoginPage.jsx";
-import AdminSidebar from "./components/AdminSidebar/AdminSidebar.jsx";
-//import RegisterUsuario from "./components/RegisterUsuario/RegisterUsuario.jsx";
-//import ClassRegister from "./components/ClassRegister/ClassRegister.jsx";
 
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import AppRouter from './routes/AppRouter'; // Importamos el archivo de rutas que creamos
+import './App.css'; 
 
 function App() {
-  return <AdminSidebar />;
+  return (
+    <Router>
+      <div className="App">
+        {/* Aquí cargamos toda la configuración de rutas */}
+        <AppRouter />
+      </div>
+    </Router>
+  );
 }
 
 export default App;

@@ -1,51 +1,76 @@
-/* Contenedor principal */
-.homepage {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f0f0f0; /* color de fondo si la imagen no carga */
+.center-image img {
+  /* Estas tres líneas son la clave */
+  width: 100vw;       /* 100% del ancho de la ventana */
+  height: 100vh;      /* 100% del alto de la ventana */
+  object-fit: cover;  /* Estira la imagen para llenar TODO sin deformarse */
+  
+  position: fixed;    /* La fija al fondo */
+  top: 0;
+  left: 0;
+  z-index: -1;        /* La pone detrás de los botones */
 }
-
-/* Botones arriba a la izquierda */
+/* 3. Contenedor de botones (Ajuste de posición y separación) */
 .top-left-buttons {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 60px;       /* Más abajo del borde superior */
+  right: 50px;      /* Más alejado del borde izquierdo */
   display: flex;
-  gap: 10px;
+  /*flex-direction: column;  Uno debajo del otro (más espacio) */
+  gap: 20px;       /* Separación entre un botón y otro */
+  z-index: 10;
 }
 
-/* Estilo de los botones */
+/* 4. Estilo de los botones (Más largos y elegantes) */
 .btn {
-  padding: 10px 20px;
-  background-color: #007bff;
+  padding: 15px 40px;      /* El 40px los hace más largos horizontalmente */
+  min-width: 100px;        /* Asegura que ambos midan lo mismo de largo */
+  background-color: #2DD4BF; /* Puedes cambiarlo por var(--accent) si lo definiste */
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 5px;     /* Bordes suavizados */
   cursor: pointer;
   font-weight: bold;
-  transition: 0.3s;
+  font-size: 12px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Sombra para que resalten del fondo */
 }
 
 .btn:hover {
-  background-color: #0056b3;
+  transform: scale(1.05);  /* Efecto de agrandado al pasar el mouse */
+  background-color: #000000;
 }
 
-/* Imagen centrada */
-.center-image img {
-  max-width: 80%;
-  max-height: 80%;
-  object-fit: contain;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+.title-group {
+  position: absolute;
+  right: 60px;          /* Separación del borde derecho */
+  top: 50%;             /* Lo baja al centro de la pantalla */
+  transform: translateY(-50%); /* Centrado vertical exacto */
+  
+  display: flex;
+  flex-direction: column; /* Apila los elementos: uno arriba y otro abajo */
+  align-items: flex-end;  /* Alinea todo hacia la derecha */
+  z-index: 100;           /* Número alto para que no lo tape la imagen */
 }
 
-.center-image img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+.main-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 90px;
+  color: #ffffff;       /* Tu verde manzana */
+  margin: 0;            /* Quitamos márgenes que lo suben o bajan */
+  line-height: 0.8;     /* Pegamos un poco más el texto */
+  text-transform: uppercase;
+  text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.subtitle {
+  font-family: 'Anton', sans-serif;
+  font-size: 35px;
+  color: #2DD4BF;
+  margin: 10px 0 0 0;   /* Solo 10px de separación arriba */
+  text-transform: uppercase;
+  letter-spacing: 12px; /* Toque elegante y sutil */
+  font-weight: 300;
+  opacity: 0.9;
+ 
 }
