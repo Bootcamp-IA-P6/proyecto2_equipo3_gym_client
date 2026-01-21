@@ -1,0 +1,93 @@
+.register-screen {
+  min-height: 100vh;
+  background-color: #0f0f0f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.register-container {
+  background: #1a1a1a;
+  width: 100%;
+  max-width: 800px;
+  padding: 50px;
+  border-radius: 20px;
+  border: 1px solid #333;
+}
+
+.register-header h1 {
+  font-family: 'Anton', sans-serif;
+  color: #2DD4BF; /* Tu turquesa */
+  font-size: 40px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.register-header p {
+  color: #666;
+  margin-top: 5px;
+  margin-bottom: 40px;
+}
+
+.form-section {
+  margin-bottom: 30px;
+}
+
+.form-section h3 {
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  border-left: 3px solid #2DD4BF;
+  padding-left: 10px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas */
+  gap: 20px;
+}
+
+.input-box label {
+  display: block;
+  color: #888;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.input-box input, .register-select {
+  width: 100%;
+  padding: 12px;
+  background: #252525;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: white;
+  outline: none;
+}
+
+.register-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+}
+
+.save-user-btn {
+  background: #2DD4BF;
+  color: #000;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.back-btn {
+  background: transparent;
+  color: #888;
+  border: none;
+  cursor: pointer;
+}
