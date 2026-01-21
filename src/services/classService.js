@@ -3,8 +3,8 @@ import api from './api';
 
 const BASE_URL = '/gym_classes'; 
 
-const getAllClasses = async () => {
-  const response = await api.get(BASE_URL);
+const getAllClasses = async (skip = 0, limit = 100) => {
+  const response = await api.get(`${BASE_URL}/`, { params: { skip, limit } });
   return response.data;
 };
 
