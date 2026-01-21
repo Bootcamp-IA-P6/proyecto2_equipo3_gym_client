@@ -1,115 +1,53 @@
-.class-screen {
-  min-height: 100vh;
-  background-color: #0d0d0d;
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #1a1a1a;
   padding: 30px;
-}
-
-.class-container {
-  background: #181818;
-  width: 100%;
-  max-width: 750px;
-  padding: 45px;
-  border-radius: 25px;
-  border: 1px solid #2a2a2a;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-}
-
-.class-header h1 {
-  font-family: 'Anton', sans-serif;
-  color: #2DD4BF;
-  font-size: 35px;
-  letter-spacing: 1px;
-  margin: 0;
-  text-transform: uppercase;
-}
-
-.class-header p {
-  color: #777;
-  font-size: 14px;
-  margin-top: 5px;
-  margin-bottom: 35px;
-}
-
-.form-section h3 {
-  color: #fff;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 18px;
-  border-left: 4px solid #2DD4BF;
-  padding-left: 12px;
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.full-width {
-  grid-column: span 2;
-}
-
-.input-box label {
-  display: block;
-  color: #888;
-  font-size: 12px;
-  margin-bottom: 8px;
-  font-weight: 500;
-}
-
-.input-box input, .class-select {
-  width: 100%;
-  padding: 13px;
-  background: #222;
+  border-radius: 15px;
+  width: 400px;
   border: 1px solid #333;
-  border-radius: 10px;
   color: white;
-  outline: none;
-  transition: 0.3s;
 }
 
-.input-box input:focus, .class-select:focus {
-  border-color: #2DD4BF;
-  background: #282828;
-}
-
-.class-actions {
+.form-group {
+  margin-bottom: 20px;
   display: flex;
-  justify-content: space-between;
-  margin-top: 40px;
-  border-top: 1px solid #2a2a2a;
-  padding-top: 25px;
+  flex-direction: column;
 }
 
-.btn-primary {
+.form-group input, .form-group textarea {
+  background: #121212;
+  border: 1px solid #333;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.btn-save {
   background: #2DD4BF;
-  color: #000;
-  padding: 15px 35px;
+  color: black;
   border: none;
-  border-radius: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.btn-primary:hover {
-  background: #24b2a0;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(45, 212, 191, 0.3);
-}
-
-.btn-secondary {
+.btn-cancel {
   background: transparent;
-  color: #666;
+  color: #888;
   border: none;
   cursor: pointer;
-  font-weight: 500;
-}
-
-.btn-secondary:hover {
-  color: #fff;
 }

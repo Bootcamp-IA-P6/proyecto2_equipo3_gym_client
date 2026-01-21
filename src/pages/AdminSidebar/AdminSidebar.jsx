@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import './AdminSidebar.css';
+// 1. Importar el componente que estará en la carpeta components
+import FormRegisterClass from '../components/FormRegisterClass/FormRegisterClass';
 
 const AdminSidebar = () => {
   const [panelTitle, setPanelTitle] = useState('Panel de Usuarios');
+  // 2. Estado para controlar si el formulario está abierto o cerrado
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -16,7 +20,7 @@ const AdminSidebar = () => {
 
   return (
     <div className="admin-container">
-      {/* SIDEBAR */}
+      {/* SIDEBAR - Se mantiene igual */}
       <aside className="sidebar">
         <h2 className="sidebar-logo">GYM<span>PRO</span></h2>
         
@@ -47,25 +51,35 @@ const AdminSidebar = () => {
           </NavLink>
         </nav>
 
-        {/* Botón de cerrar sesión al fondo */}
         <button className="logout-btn-f">Cerrar Sesión</button>
       </aside>
 
-      {/* CONTENIDO PRINCIPAL */}
+      {/* CONTENIDO PRINCIPAL - Se mantiene igual */}
       <main className="main-content">
         <header className="content-header">
           <h1>{panelTitle}</h1>
           <div className="header-buttons">
             <button className="add-btn">+ Nuevo Usuario</button>
-            <button className="add-btn">+ Registrar clases</button>
+            {/* 3. Conectamos el botón para cambiar el estado a true */}
+            <button 
+              className="add-btn" 
+              onClick={() => setIsModalOpen(true)}
+            >
+              + Registrar clases
+            </button>
           </div>
         </header>
 
         <section className="dashboard-card">
-          {/* Aquí aparecerán las tablas de las otras Pages */}
           <Outlet />
         </section>
       </main>
+
+      {/* 4. Insertamos el componente fuera del flujo principal para que no mueva el diseño */}
+      <FormRegistrarClase 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </div>
   );
 };
