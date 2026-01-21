@@ -5,7 +5,8 @@ import PrivateRoute from './PrivateRoute';
 // Importamos SOLO lo que ya tienes creado
 import HomePage from '../components/HomePage/HomePage';
 import LoginPage from '../components/LoginPage/LoginPage';
-import UsersList from '../pages/users/UsersList';
+//mport UsersList from '../pages/users/UsersList';
+import AdminSidebar from '../components/AdminSidebar/AdminSidebar';
 
 const AppRouter = () => {
   return (
@@ -17,10 +18,10 @@ const AppRouter = () => {
       {/* --- RUTAS PRIVADAS --- */}
       {/* Como no tienes Dashboard, protegemos la lista de usuarios */}
       <Route 
-        path="/users" 
+        path="/AdminSidebar" 
         element={
           <PrivateRoute>
-            <UsersList />
+            <AdminSidebar/>
           </PrivateRoute>
         } 
       />
