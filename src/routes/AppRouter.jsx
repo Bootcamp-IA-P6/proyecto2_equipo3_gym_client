@@ -3,9 +3,10 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 
 // Importamos SOLO lo que ya tienes creado
-import HomePage from '../components/HomePage/HomePage';
-import LoginPage from '../components/LoginPage/LoginPage';
-import UsersList from '../pages/users/UsersList';
+import HomePage from '../pages/HomePage/HomePage';
+import LoginPage from '../pages/LoginPage/LoginPage';
+//mport UsersList from '../pages/users/UsersList';
+import AdminSidebar from '../pages/AdminSidebar/AdminSidebar';
 
 const AppRouter = () => {
   return (
@@ -17,10 +18,10 @@ const AppRouter = () => {
       {/* --- RUTAS PRIVADAS --- */}
       {/* Como no tienes Dashboard, protegemos la lista de usuarios */}
       <Route 
-        path="/users" 
+        path="/AdminSidebar" 
         element={
           <PrivateRoute>
-            <UsersList />
+            <AdminSidebar/>
           </PrivateRoute>
         } 
       />
