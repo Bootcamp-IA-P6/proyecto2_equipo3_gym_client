@@ -6,7 +6,9 @@ import PrivateRoute from './PrivateRoute';
 import HomePage from '../pages/HomePage/HomePage';
 import LoginPage from '../pages/LoginPage/LoginPage';
 import AdminSidebar from '../pages/AdminSidebar/AdminSidebar';
-import UserPage from '../pages/UserPage/UserPage'; // Tu nueva página de usuarios
+import UserPage from '../pages/UserPage/UserPage'; 
+// 1. IMPORTA TU PÁGINA DE CLASES (Corregido a ../pages/)
+import ClassPage from '../pages/ClassPage/ClassPage'; 
 
 const AppRouter = () => {
   return (
@@ -24,16 +26,16 @@ const AppRouter = () => {
           </PrivateRoute>
         } 
       >
-        {/* Al entrar a /admin, redirigimos automáticamente a usuarios */}
+        {/* Redirigir al inicio del panel */}
         <Route index element={<Navigate to="usuarios" replace />} />
         
-        {/* Aquí es donde se conectan tus carpetas de Pages */}
+        {/* Ruta de Usuarios */}
         <Route path="usuarios" element={<UserPage />} />
         
-        {/* Cuando crees las otras, solo las añades aquí:
+        {/* 2. RUTA DE CLASES: Asegúrate que el path sea 'clases' 
+               para que coincida con tu AdminSidebar.jsx */}
         <Route path="clases" element={<ClassPage />} />
-        <Route path="entrenadores" element={<TrainerPage />} /> 
-        */}
+
       </Route>
 
       {/* Redirección por defecto */}

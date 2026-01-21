@@ -2,52 +2,167 @@
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px); /* Efecto de desenfoque de fondo */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
 }
 
-.modal-content {
-  background: #1a1a1a;
-  padding: 30px;
-  border-radius: 15px;
-  width: 400px;
+.modal-card {
+  background: #111111;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 20px;
   border: 1px solid #333;
-  color: white;
+  padding: 40px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.form-group {
-  margin-bottom: 20px;
+.modal-header h2 {
+  color: #2DD4BF; /* Turquesa */
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.modal-header p {
+  color: #777;
+  font-size: 0.9rem;
+  margin-top: 8px;
+  margin-bottom: 30px;
+}
+
+.modal-form {
   display: flex;
   flex-direction: column;
+  gap: 20px;
 }
 
-.form-group input, .form-group textarea {
-  background: #121212;
-  border: 1px solid #333;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 5px;
+.form-input-group label {
+  display: block;
+  color: #eee;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 8px;
 }
 
-.btn-save {
-  background: #2DD4BF;
-  color: black;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-weight: bold;
+.form-input-group input, 
+.form-input-group textarea {
+  width: 100%;
+  background: #000;
+  border: 1.5px solid #222;
+  border-radius: 10px;
+  padding: 12px 15px;
+  color: #fff;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.form-input-group textarea {
+  height: 100px;
+  resize: none;
+}
+
+.form-input-group input:focus, 
+.form-input-group textarea:focus {
+  border-color: #2DD4BF;
+  box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.1);
+  outline: none;
+}
+
+/* Switch Estilizado */
+.form-switch-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background: #080808;
+  border-radius: 12px;
+}
+
+.custom-switch {
+  width: 110px;
+  height: 34px;
+  background: #222;
+  border-radius: 20px;
+  position: relative;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  transition: 0.3s;
 }
 
-.btn-cancel {
+.custom-switch.active {
+  background: rgba(45, 212, 191, 0.2);
+}
+
+.custom-switch span {
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-left: auto;
+  color: #666;
+}
+
+.custom-switch.active span {
+  color: #2DD4BF;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.switch-handle {
+  width: 26px;
+  height: 26px;
+  background: #555;
+  border-radius: 50%;
+  position: absolute;
+  left: 4px;
+  transition: 0.3s;
+}
+
+.custom-switch.active .switch-handle {
+  left: calc(100% - 30px);
+  background: #2DD4BF;
+}
+
+/* Botones */
+.modal-footer-actions {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.btn-primary {
+  background: #2DD4BF;
+  color: #000;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-secondary {
   background: transparent;
   color: #888;
-  border: none;
+  border: 1px solid #333;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 600;
   cursor: pointer;
 }
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }

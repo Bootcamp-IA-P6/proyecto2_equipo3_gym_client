@@ -1,27 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import classService from '../../services/classService'; // Importamos tu servicio
+import React, { useState, useEffect, useCallback } from 'react';
+import classService from '../../services/classService';
 import './ClassPage.css';
 
 const ClassPage = () => {
   const [clases, setClases] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        // Usamos tu función getAllClasses del service
-        const data = await classService.getAllClasses();
-        setClases(data);
-      } catch (error) {
-        console.error("Error al obtener las clases:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
+  const fetchData = useCallback(async () => {
+    try {
+      setLoading(true);
+      const data = await classService.getAllClasses();
+      setClases(data);
+    } catch (error) {
+      console.error("Error al obtener las clases:", error);
+    } finally {
+      setLoading(false);
+    }
   }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  // PUENTE: Expone la función de refresco al objeto window
+  useEffect(() => {
+    window.refreshClassTable = () => {
+      console.log("Recargando tabla de clases...");
+      fetchData();
+    };
+    return () => { window.refreshClassTable = null; };
+  }, [fetchData]);
 
   if (loading) return <div className="loading">Cargando clases...</div>;
 
@@ -39,7 +47,7 @@ const ClassPage = () => {
         <tbody>
           {clases.length > 0 ? (
             clases.map((clase, index) => (
-              <tr key={index}>
+              <tr key={clase.id || index}>
                 <td className="clase-name">{clase.name}</td>
                 <td className="clase-desc">{clase.description}</td>
                 <td>
