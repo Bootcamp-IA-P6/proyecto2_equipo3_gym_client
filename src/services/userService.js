@@ -1,7 +1,7 @@
 import api from './api';
 
-const getAllUsers = async () => {
-  const response = await api.get('/users');
+const getAllUsers = async (skip = 0, limit = 100) => {
+  const response = await api.get('/users', { params: { skip, limit } });
   return response.data;
 };
 

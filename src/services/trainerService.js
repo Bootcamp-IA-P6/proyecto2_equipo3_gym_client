@@ -1,7 +1,7 @@
 import api from './api';
 
-const getAllTrainers = async () => {
-  const response = await api.get('/trainers');
+const getAllTrainers = async (skip = 0, limit = 100) => {
+  const response = await api.get('/trainers', { params: { skip, limit } });
   return response.data;
 };
 
@@ -9,7 +9,10 @@ const getTrainerById = async (id) => {
   const response = await api.get(`/trainers/${id}`);
   return response.data;
 };
-
+const getTrainersBySpecialty = async (specialty) => {
+  const response = await api.get(`/trainers/specialty/${specialty}`);
+  return response.data;
+};
 const createTrainer = async (trainerData) => {
   // trainerData suele requerir user_id y otros datos específicos
   const response = await api.post('/trainers', trainerData);
@@ -29,6 +32,7 @@ const deleteTrainer = async (id) => {
 export default {
   getAllTrainers,
   getTrainerById,
+  getTrainersBySpecialty,
   createTrainer,
   updateTrainer,
   deleteTrainer

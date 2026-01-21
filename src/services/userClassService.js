@@ -11,8 +11,8 @@ const enrollUser = async (enrollmentData) => {
 };
 
 // Ver todas las inscripciones
-const getAllEnrollments = async () => {
-  const response = await api.get(BASE_URL);
+const getAllEnrollments = async (skip = 0, limit = 100) => {
+  const response = await api.get(`${BASE_URL}/`, { params: { skip, limit } });
   return response.data;
 };
 
