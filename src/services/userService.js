@@ -1,7 +1,7 @@
 import api from './api';
 
 const getAllUsers = async (skip = 0, limit = 100) => {
-  const response = await api.get('/users', { params: { skip, limit } });
+  const response = await api.get('/users/', { params: { skip, limit } });
   return response.data;
 };
 
@@ -11,7 +11,7 @@ const getUserById = async (id) => {
 };
 
 const createUser = async (userData) => {
-  const response = await api.post('/users', userData);
+  const response = await api.post('/users/', userData);
   return response.data;
 };
 

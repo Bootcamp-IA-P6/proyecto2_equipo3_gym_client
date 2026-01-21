@@ -14,7 +14,7 @@
   backdrop-filter: blur(20px); /* Efecto cristal */
   border: 1px solid rgba(0, 213, 255, 0.503); /* Borde verde manzana sutil */
   text-align: center;
-  width: 350px;
+  width: 650px;
 }
 
 .login-title {

@@ -4,6 +4,7 @@
   background-color: #121212; /* Fondo muy oscuro */
   color: white;
   font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
 }
 
 /* SIDEBAR */
@@ -45,6 +46,8 @@
   cursor: pointer;
   border-radius: 8px;
   transition: 0.3s;
+  text-decoration: none; 
+  display: block; /* Para que el enlace ocupe todo el recuadro */
 }
 
 .nav-item.active, .nav-item:hover {
@@ -65,6 +68,10 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+}
+.header-buttons {
+  display: flex;
+  gap: 15px;
 }
 
 .dashboard-card {
@@ -106,6 +113,9 @@
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
+}
+.add-btn:hover {
+  transform: scale(1.05); /* Efecto visual al pasar el ratón */
 }
 .nav-item.active {
   background-color: #2DD4BF;
