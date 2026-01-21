@@ -9,11 +9,13 @@
 /* SIDEBAR */
 .sidebar {
   width: 250px;
-  background-color: #1a1a1a;
+  background-color: #121212; /* Ajustado al fondo total */
   display: flex;
   flex-direction: column;
   padding: 30px 20px;
   border-right: 1px solid #333;
+  position: fixed; /* Fijo para que no se mueva */
+  height: 100vh;
 }
 
 .sidebar-logo {
@@ -25,7 +27,7 @@
 }
 
 .sidebar-logo span {
-  color: #2DD4BF; /* Tu turquesa */
+  color: #2DD4BF; /* Turquesa */
 }
 
 .sidebar-nav {
@@ -35,9 +37,9 @@
   flex-grow: 1;
 }
 
+/* Links del menú */
 .nav-item {
-  background: none;
-  border: none;
+  text-decoration: none; /* Quitar subrayado de NavLink */
   color: #888;
   text-align: left;
   padding: 12px 15px;
@@ -47,16 +49,30 @@
   transition: 0.3s;
 }
 
+/* Hover y Activo del menú */
 .nav-item.active, .nav-item:hover {
   background-color: #2DD4BF;
   color: #000;
   font-weight: bold;
 }
 
+/* Botón inferior de Cerrar Sesión */
+.logout-btn-f {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: auto;
+  border-radius: 4px;
+}
+
 /* CONTENIDO PRINCIPAL */
 .main-content {
   flex-grow: 1;
   padding: 40px;
+  margin-left: 250px; /* Espacio para la sidebar fija */
   overflow-y: auto;
 }
 
@@ -67,6 +83,17 @@
   margin-bottom: 30px;
 }
 
+.content-header h1 {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+/* Contenedor de las tablas */
 .dashboard-card {
   background-color: #1a1a1a;
   border-radius: 15px;
@@ -74,41 +101,17 @@
   border: 1px solid #333;
 }
 
-.admin-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-}
-
-.admin-table th {
-  padding: 15px;
-  border-bottom: 2px solid #333;
-  color: #2DD4BF;
-}
-
-.admin-table td {
-  padding: 15px;
-  border-bottom: 1px solid #333;
-}
-
-.status.active {
-  background: rgba(45, 212, 191, 0.2);
-  color: #2DD4BF;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 12px;
-}
-
+/* Botones Turquesas */
 .add-btn {
   background-color: #2DD4BF;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
+  transition: 0.3s;
 }
-.nav-item.active {
-  background-color: #2DD4BF;
-  color: #000;
-  font-weight: bold;
+
+.add-btn:hover {
+  box-shadow: 0 0 10px rgba(45, 212, 191, 0.5);
 }
