@@ -1,38 +1,34 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import './AdminSidebar.css';
 import Modal from '../../components/Modal/Modal'; 
 import FormRegisterUsuario from '../../components/FormRegisterUsuario/FormRegisterUsuario';
 import FormRegisterClass from '../../components/FormRegisterClass/FormRegisterClass';
 
-
-const AdminSidebar= () => {
+const AdminSidebar = () => {
+  const [panelTitle, setPanelTitle] = useState('Panel de Administración');
   const [isUserModalOpen, setIsUserModalOpen] = useState(false);
-  // Función auxiliar para cuando se crea el usuario con éxito
+  const [isClassModalOpen, setIsClassModalOpen] = useState(false);
+  
+  const location = useLocation();
+
+  // Cambiar título según la sección
+  useEffect(() => {
+    if (location.pathname.includes('usuarios')) setPanelTitle('Gestión de Usuarios');
+    else if (location.pathname.includes('clases')) setPanelTitle('Gestión de Clases');
+    else if (location.pathname.includes('entrenadores')) setPanelTitle('Gestión de Entrenadores');
+  }, [location]);
+
+  // Funciones de éxito (Recargar página para ver cambios en tablas)
   const handleSuccess = () => {
-    setIsUserModalOpen(false); // Cerramos el modal
+    setIsUserModalOpen(false);
+    setIsClassModalOpen(false);
     window.location.reload(); 
   };
 
-const AdminSidebar = () => {
-  const [panelTitle, setPanelTitle] = useState('Panel de Usuarios');
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const location = useLocation();
-
-  useEffect(() => {
-    const path = location.pathname;
-    if (path.includes('usuarios')) setPanelTitle('Panel de Usuarios');
-    else if (path.includes('clases')) setPanelTitle('Panel de Clases');
-    else if (path.includes('membresias')) setPanelTitle('Panel de Membresías');
-    else if (path.includes('reportes')) setPanelTitle('Panel de Reportes');
-  }, [location]);
-
-  // Función para manejar el refresco de datos
-  const handleRefresh = () => {
-    // Si la función global existe en el window (creada en ClassPage), la ejecuta
-    if (window.refreshClassTable) {
-      window.refreshClassTable();
-    }
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.href = '/login';
   };
 
   return (
@@ -41,64 +37,58 @@ const AdminSidebar = () => {
         <h2 className="sidebar-logo">GYM<span>PRO</span></h2>
         <nav className="sidebar-nav">
           <NavLink to="/AdminSidebar/usuarios" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
-            Usuarios
+            👥 Usuarios
           </NavLink>
           <NavLink to="/AdminSidebar/clases" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
-            Clases
+            📅 Clases
           </NavLink>
-          <NavLink to="/AdminSidebar/membresias" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
-            Membresías
-          </NavLink>
-          <NavLink to="/AdminSidebar/reportes" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
-            Reportes
+          <NavLink to="/AdminSidebar/entrenadores" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
+            🏋️ Entrenadores
           </NavLink>
         </nav>
-        <button className="logout-btn-f">Cerrar Sesión</button>
+        <button className="logout-btn-f" onClick={handleLogout}>Cerrar Sesión</button>
       </aside>
 
       <main className="main-content">
         <header className="content-header">
           <h1>{panelTitle}</h1>
           <div className="header-buttons">
-            <button 
-              className="add-btn" 
-              onClick={() => setIsUserModalOpen(true)}
-            >
-              + Nuevo Usuario
+            {/* Estos botones abren los Modales */}
+            <button className="add-btn" onClick={() => setIsUserModalOpen(true)}>
+               Nuevo Usuario / Entrenador
             </button>
-            <button className="add-btn">+ Registrar clases</button>
-            <button className="add-btn">+ Nuevo Usuario</button>
-            <button className="add-btn" onClick={() => setIsModalOpen(true)}>
-              + Registrar clases
+            <button className="add-btn" onClick={() => setIsClassModalOpen(true)}>
+               Nueva Clase
             </button>
           </div>
         </header>
 
+        {/* Aquí se renderizan las tablas (UserPage, ClassPage, etc.) */}
         <section className="dashboard-card">
           <Outlet />
         </section>
-        {/* 5. AÑADE EL COMPONENTE MODAL AL FINAL DEL MAIN (FUERA DEL OUTLET) */}
+
+        {/* --- MODAL USUARIOS / ENTRENADORES --- */}
         <Modal 
           isOpen={isUserModalOpen} 
-          onClose={() => setIsUserModalOpen(false)}
-          title="Registrar Nuevo Usuario"
+          onClose={() => setIsUserModalOpen(false)} 
+         
         >
-          <FormRegisterUsuario 
-            onSuccess={handleSuccess}
-            onClose={() => setIsUserModalOpen(false)}
-          />
+          <FormRegisterUsuario onSuccess={handleSuccess} onClose={() => setIsUserModalOpen(false)} />
         </Modal>
-      </main>
 
-      {/* 4. Componente con el onRefresh añadido */}
-      <FormRegisterClass
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-        onRefresh={handleRefresh}
-      />
+        {/* --- MODAL CLASES --- */}
+        <Modal 
+          isOpen={isClassModalOpen} 
+          onClose={() => setIsClassModalOpen(false)} 
+         
+        >
+          <FormRegisterClass onSuccess={handleSuccess} onClose={() => setIsClassModalOpen(false)} />
+        </Modal>
+
+      </main>
     </div>
   );
 };
-}
 
 export default AdminSidebar;
