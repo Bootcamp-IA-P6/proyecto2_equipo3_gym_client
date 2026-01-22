@@ -2,15 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import './AdminSidebar.css';
 
-import Modal from '../../components/Modal/Modal'; 
+import Modal from '../../components/Modal/Modal';
 import FormRegisterUsuario from '../../components/FormRegisterUsuario/FormRegisterUsuario';
 import FormRegisterClass from '../../components/FormRegisterClass/FormRegisterClass';
+import {
+  LuUsers,           /* Cambiado de LuUsers2 a LuUsers */
+  LuCalendarDays,
+  LuDumbbell,
+  LuLogOut,
+  LuUserPlus,
+  LuPlus             /* Usaremos LuPlus en lugar de LuPlusCircle */
+} from "react-icons/lu";
 
 const AdminSidebar = () => {
   const [panelTitle, setPanelTitle] = useState('Panel de Administración');
   const [isUserModalOpen, setIsUserModalOpen] = useState(false);
   const [isClassModalOpen, setIsClassModalOpen] = useState(false);
-  
+
   const location = useLocation();
   const navigate = useNavigate()
 
@@ -25,7 +33,7 @@ const AdminSidebar = () => {
   const handleSuccess = () => {
     setIsUserModalOpen(false);
     setIsClassModalOpen(false);
-    window.location.reload(); 
+    window.location.reload();
   };
 
   const handleLogout = () => {
@@ -39,28 +47,32 @@ const AdminSidebar = () => {
         <h2 className="sidebar-logo">GYM<span>PRO</span></h2>
         <nav className="sidebar-nav">
           <NavLink to="/AdminSidebar/usuarios" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
-            👥 Usuarios
+            <LuUsers className="nav-icon" /> Usuarios
           </NavLink>
+
           <NavLink to="/AdminSidebar/clases" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
-            📅 Clases
+            <LuCalendarDays className="nav-icon" /> Clases
           </NavLink>
+
           <NavLink to="/AdminSidebar/entrenadores" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
-            🏋️ Entrenadores
+            <LuDumbbell className="nav-icon" /> Entrenadores
           </NavLink>
         </nav>
-        <button className="logout-btn-f" onClick={handleLogout}>Cerrar Sesión</button>
+
+        <button className="logout-btn-f" onClick={handleLogout}>
+          <LuLogOut className="nav-icon" /> Cerrar Sesión
+        </button>
       </aside>
 
       <main className="main-content">
         <header className="content-header">
           <h1>{panelTitle}</h1>
           <div className="header-buttons">
-            {/* Estos botones abren los Modales */}
             <button className="add-btn" onClick={() => setIsUserModalOpen(true)}>
-               Nuevo Usuario / Entrenador
+              <LuUserPlus className="btn-icon" /> Nuevo Usuario
             </button>
             <button className="add-btn" onClick={() => setIsClassModalOpen(true)}>
-               Nueva Clase
+              <LuPlus className="btn-icon" /> Nueva Clase
             </button>
           </div>
         </header>
@@ -71,19 +83,19 @@ const AdminSidebar = () => {
         </section>
 
         {/* --- MODAL USUARIOS / ENTRENADORES --- */}
-        <Modal 
-          isOpen={isUserModalOpen} 
-          onClose={() => setIsUserModalOpen(false)} 
-         
+        <Modal
+          isOpen={isUserModalOpen}
+          onClose={() => setIsUserModalOpen(false)}
+
         >
           <FormRegisterUsuario onSuccess={handleSuccess} onClose={() => setIsUserModalOpen(false)} />
         </Modal>
 
         {/* --- MODAL CLASES --- */}
-        <Modal 
-          isOpen={isClassModalOpen} 
-          onClose={() => setIsClassModalOpen(false)} 
-         
+        <Modal
+          isOpen={isClassModalOpen}
+          onClose={() => setIsClassModalOpen(false)}
+
         >
           <FormRegisterClass onSuccess={handleSuccess} onClose={() => setIsClassModalOpen(false)} />
         </Modal>

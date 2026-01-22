@@ -4,8 +4,10 @@ import api from './api';
 const BASE_URL = '/user_class'; 
 
 const getAllUserClasses = async () => {
-    // Esta es la ruta que devuelve quién está en qué clase
-    const response = await api.get(BASE_URL);
+    // Añadimos un timestamp para evitar que el navegador devuelva datos viejos
+    const response = await api.get(`${BASE_URL}/`, {
+        params: { _t: Date.now() }
+    });
     return response.data;
 };
 
