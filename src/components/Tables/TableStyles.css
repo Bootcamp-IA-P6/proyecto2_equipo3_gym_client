@@ -63,3 +63,45 @@
   color: #ff6b6b;
   border: 1px solid rgba(255, 107, 107, 0.3);
 }
+.admin-table th:nth-child(4), 
+.admin-table td:nth-child(4) {
+  width: 180px;      /* Forzamos un ancho pequeño */
+  max-width: 180px;
+  min-width: 120px;
+}
+
+.classes-list-cell {
+  display: flex;
+  flex-wrap: wrap;   /* Las clases bajarán a la siguiente línea si no caben */
+  gap: 6px;          /* Un poco más de espacio entre etiquetas */
+  justify-content: flex-start;
+}
+
+.class-tag {
+  background: rgba(45, 212, 191, 0.1);
+  color: #2DD4BF;
+  padding: 3px 8px;  /* Reducido un poco el padding */
+  border-radius: 6px;
+  font-size: 0.75rem; /* Fuente ligeramente más pequeña */
+  font-weight: bold;
+  border: 1px solid rgba(45, 212, 191, 0.2);
+  display: inline-block;
+  white-space: nowrap; /* Evita que el nombre de una sola clase se parta */
+}
+
+.no-classes {
+  color: #666;
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+/* .class-tag {
+  background: rgba(45, 212, 191, 0.1);
+  color: #2DD4BF;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin: 2px;
+  display: inline-block;
+} */

@@ -9,7 +9,7 @@
 
 /* SIDEBAR */
 .sidebar {
-  width: 250px;
+  width: 320px;
   background-color: #121212; /* Ajustado al fondo total */
   display: flex;
   flex-direction: column;
@@ -17,6 +17,7 @@
   border-right: 1px solid #333;
   position: fixed; /* Fijo para que no se mueva */
   height: 100vh;
+  z-index: 100;
 }
 
 .sidebar-logo {
@@ -75,7 +76,7 @@
 .main-content {
   flex-grow: 1;
   padding: 40px;
-  margin-left: 250px; /* Espacio para la sidebar fija */
+  margin-left: 320px; /* Espacio para la sidebar fija */
   overflow-y: auto;
 }
 

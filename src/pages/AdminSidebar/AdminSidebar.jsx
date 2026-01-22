@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import './AdminSidebar.css';
+
 import Modal from '../../components/Modal/Modal'; 
 import FormRegisterUsuario from '../../components/FormRegisterUsuario/FormRegisterUsuario';
 import FormRegisterClass from '../../components/FormRegisterClass/FormRegisterClass';
@@ -11,6 +12,7 @@ const AdminSidebar = () => {
   const [isClassModalOpen, setIsClassModalOpen] = useState(false);
   
   const location = useLocation();
+  const navigate = useNavigate()
 
   // Cambiar título según la sección
   useEffect(() => {
@@ -28,7 +30,7 @@ const AdminSidebar = () => {
 
   const handleLogout = () => {
     localStorage.clear();
-    window.location.href = '/login';
+    navigate('/');
   };
 
   return (
