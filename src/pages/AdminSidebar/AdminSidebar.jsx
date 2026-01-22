@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { NavLink, Outlet, useLocation, useNavigate} from 'react-router-dom';
 import './AdminSidebar.css';
 // 1. Importación (Asegúrate que el nombre coincida con el uso abajo)
 import FormRegisterClass from '../../components/FormRegisterClass/FormRegisterClass';
@@ -8,6 +8,7 @@ const AdminSidebar = () => {
   const [panelTitle, setPanelTitle] = useState('Panel de Usuarios');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate(); // <-- Agrega esta línea
 
   useEffect(() => {
     const path = location.pathname;
@@ -16,6 +17,13 @@ const AdminSidebar = () => {
     else if (path.includes('membresias')) setPanelTitle('Panel de Membresías');
     else if (path.includes('reportes')) setPanelTitle('Panel de Reportes');
   }, [location]);
+
+  // 2. Nueva función para cerrar sesión
+  const handleLogout = () => {
+    // Si guardas un token, bórralo aquí: localStorage.removeItem('token');
+    localStorage.clear(); // Esto borra todo lo guardado para mayor seguridad
+    navigate('/'); // Redirige al Home
+  };
 
   // Función para manejar el refresco de datos
   const handleRefresh = () => {
@@ -43,7 +51,9 @@ const AdminSidebar = () => {
             Reportes
           </NavLink>
         </nav>
-        <button className="logout-btn-f">Cerrar Sesión</button>
+       <button className="logout-btn-f" onClick={handleLogout}>
+          Cerrar Sesión
+        </button>
       </aside>
 
       <main className="main-content">
