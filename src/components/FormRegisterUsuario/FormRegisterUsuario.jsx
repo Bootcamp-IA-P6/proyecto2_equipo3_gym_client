@@ -361,8 +361,12 @@ const FormRegisterUsuario = ({ onSuccess, onClose }) => {
                     // Si tu endpoint /trainers devuelve solo ID y user_id, quizás necesites cargar usuarios.
                     // Por ahora mostramos ID o nombre si está disponible.
                     <option key={tr.id} value={tr.id}>
-                       Entrenador #{tr.id} {tr.user ? `- ${tr.user.name}` : ''}
-                    </option>
+        {/* LÓGICA VISUAL: Si tenemos datos del usuario, mostramos Nombre y Apellido */}
+        {tr.user 
+          ? `${tr.user.name} ${tr.user.last_name} - ${tr.specialty}` 
+          : `Entrenador #${tr.id} (${tr.specialty})` // Fallback por seguridad
+        }
+      </option>
                   ))}
                 </select>
               </div>
