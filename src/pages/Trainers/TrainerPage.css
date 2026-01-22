@@ -1,0 +1,62 @@
+.table-container {
+  width: 100%;
+  animation: fadeIn 0.5s ease;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Encabezados Turquesas según tu diseño */
+.admin-table th {
+  color: #2DD4BF; 
+  text-align: left;
+  padding: 15px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid #333;
+}
+
+.admin-table td {
+  padding: 20px 15px;
+  color: #fff;
+  border-bottom: 1px solid #222;
+}
+
+/* Badge de estado dinámico */
+.status-badge.active {
+  background: rgba(45, 212, 191, 0.15);
+  color: #2DD4BF;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.status-badge.inactive {
+  background: rgba(255, 0, 0, 0.1);
+  color: #ff4d4d;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+/* Botón Editar Blanco */
+.edit-btn {
+  background-color: #ffffff;
+  color: #000;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background-color: #2DD4BF;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

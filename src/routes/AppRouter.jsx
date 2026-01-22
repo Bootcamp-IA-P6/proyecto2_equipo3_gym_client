@@ -2,11 +2,13 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 
-// Importamos SOLO lo que ya tienes creado
+// Importaciones
 import HomePage from '../pages/HomePage/HomePage';
 import LoginPage from '../pages/LoginPage/LoginPage';
-//mport UsersList from '../pages/users/UsersList';
 import AdminSidebar from '../pages/AdminSidebar/AdminSidebar';
+import UserPage from '../pages/UserPage/UserPage'; 
+// 1. IMPORTA TU PÁGINA DE CLASES (Corregido a ../pages/)
+import ClassPage from '../pages/ClassPage/ClassPage'; 
 
 const AppRouter = () => {
   return (
@@ -15,18 +17,28 @@ const AppRouter = () => {
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
 
-      {/* --- RUTAS PRIVADAS --- */}
-      {/* Como no tienes Dashboard, protegemos la lista de usuarios */}
+      {/* --- RUTAS PRIVADAS (Dashboard) --- */}
       <Route 
         path="/AdminSidebar" 
         element={
           <PrivateRoute>
-            <AdminSidebar/>
+            <AdminSidebar />
           </PrivateRoute>
         } 
-      />
+      >
+        {/* Redirigir al inicio del panel */}
+        <Route index element={<Navigate to="usuarios" replace />} />
+        
+        {/* Ruta de Usuarios */}
+        <Route path="usuarios" element={<UserPage />} />
+        
+        {/* 2. RUTA DE CLASES: Asegúrate que el path sea 'clases' 
+               para que coincida con tu AdminSidebar.jsx */}
+        <Route path="clases" element={<ClassPage />} />
 
-      {/* Redirección por defecto: Si se pierden, van al Home */}
+      </Route>
+
+      {/* Redirección por defecto */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
