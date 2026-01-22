@@ -24,11 +24,16 @@ const deleteUser = async (id) => {
   const response = await api.delete(`/users/${id}`);
   return response.data;
 };
+const activateUser = async (id) => {
+  const response = await api.patch(`/users/${id}/activate`);
+  return response.data;
+};
 
 export default {
   getAllUsers,
   getUserById,
   createUser,
   updateUser,
-  deleteUser
+  deleteUser,
+  activateUser
 };
