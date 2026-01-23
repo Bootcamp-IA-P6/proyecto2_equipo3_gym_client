@@ -1,0 +1,151 @@
+/* Contenedor Principal */
+.admin-container {
+  display: flex;
+  height: 100vh;
+  background-color: #121212;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+
+/* SIDEBAR (Panel Izquierdo - Ancho actualizado a 320px) */
+.sidebar {
+  width: 320px;
+  background-color: #121212;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  border-right: 1px solid #333;
+  position: fixed;
+  height: 100vh;
+  z-index: 100;
+}
+
+.sidebar-logo {
+  font-family: 'Anton', sans-serif;
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+}
+
+.sidebar-logo span {
+  color: #2DD4BF;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+/* Links del menú con soporte para iconos */
+.nav-item {
+  text-decoration: none;
+  color: #888;
+  display: flex;         /* Cambiado a flex para alinear iconos */
+  align-items: center;   /* Centra icono y texto verticalmente */
+  gap: 12px;             /* Espacio entre icono y texto */
+  padding: 12px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+/* Iconos dentro de la navegación */
+.nav-icon {
+  font-size: 20px;
+  min-width: 24px;
+}
+
+/* Hover y Activo del menú */
+.nav-item.active, 
+.nav-item:hover {
+  background-color: #2DD4BF;
+  color: #000;
+  font-weight: bold;
+}
+
+/* El icono cambia a negro cuando el fondo es turquesa (activo) */
+.nav-item.active .nav-icon {
+  color: #000;
+}
+
+/* Botón inferior de Cerrar Sesión actualizado */
+.logout-btn-f {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: auto;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: 0.3s;
+}
+
+.logout-btn-f:hover {
+  background-color: #e6e6e6;
+}
+
+/* CONTENIDO PRINCIPAL (Ajustado al nuevo ancho del sidebar) */
+.main-content {
+  flex-grow: 1;
+  padding: 40px;
+  margin-left: 320px; /* Debe coincidir con el width de .sidebar */
+  overflow-y: auto;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.content-header h1 {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+/* Botones Turquesas con soporte para iconos */
+.add-btn {
+  background-color: #2DD4BF;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.add-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(45, 212, 191, 0.5);
+}
+
+.btn-icon {
+  font-size: 18px;
+}
+
+/* Contenedor de las tablas */
+.dashboard-card {
+  background-color: #1a1a1a;
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid #333;
+}

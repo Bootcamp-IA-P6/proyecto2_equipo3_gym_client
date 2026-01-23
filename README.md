@@ -1,2 +1,1 @@
-# proyecto2_equipo3_gym_client
-repositorio Front-End
+proyecto2_equipo3_gym_client

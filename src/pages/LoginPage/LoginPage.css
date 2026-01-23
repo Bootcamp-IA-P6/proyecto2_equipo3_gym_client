@@ -1,0 +1,72 @@
+.login-screen {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0f0f0f; /* Fondo negro profundo */
+}
+
+.login-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 50px;
+  border-radius: 20px;
+  backdrop-filter: blur(20px); /* Efecto cristal */
+  border: 1px solid rgba(0, 213, 255, 0.503); /* Borde verde manzana sutil */
+  text-align: center;
+  width: 650px;
+}
+
+.login-title {
+  font-family: 'Anton', sans-serif;
+  color: #2DD4BF; /* Tu verde manzana */
+  font-size: 35px;
+  margin: 0;
+}
+
+.login-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  color: #888;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: white;
+  outline: none;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #2DD4BF;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #000000;
+  transform: translateY(-2px);
+  color:antiquewhite;
+}
+
+.forgot-password {
+  display: block;
+  margin-top: 20px;
+  color: #555;
+  font-size: 12px;
+  text-decoration: none;
+}
