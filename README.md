@@ -80,8 +80,9 @@ Las migraciones y configuraciones necesarias se ejecutan automáticamente al ini
 
 
 ### 📁 Estructura del Proyecto
+```
 
-PROYECTO2_EQUIPO3_GYM_CLIENT
+PROYECTO2_EQUIPO3_GYM_CLIENT/
 ├── node_modules/         # Dependencias del proyecto
 ├── public/               # Archivos públicos estáticos
 │   ├── favicon.ico
@@ -116,5 +117,6 @@ PROYECTO2_EQUIPO3_GYM_CLIENT
 ├── package-lock.json     # Registro de versiones de dependencias
 ├── package.json          # Configuración de scripts y dependencias
 └── README.md             # Documentación del proyecto
+```
 
 
