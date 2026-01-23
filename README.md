@@ -69,7 +69,7 @@ para que este proyecto pueda levantar https://github.com/Bootcamp-IA-P6/proyecto
 La aplicación se conectará usando las variables definidas en el archivo .env
 
 
-6️⃣ Ejecutar el proyecto
+### 6️⃣ Ejecutar el proyecto
 
 Para iniciar el servidor en modo desarrollo en front con React:
 
@@ -77,3 +77,42 @@ npm start
 
 
 Las migraciones y configuraciones necesarias se ejecutan automáticamente al iniciar.
+
+
+### 📁 Estructura del Proyecto
+
+PROYECTO2_EQUIPO3_GYM_CLIENT/
+├── node_modules/         # Dependencias del proyecto
+├── public/               # Archivos públicos estáticos
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   └── robots.txt
+├── src/                  # Código fuente de la aplicación
+│   ├── assets/           # Recursos (imágenes, fuentes)
+│   ├── components/       # Componentes reutilizables
+│   │   ├── FormRegisterClass/
+│   │   │   ├── FormRegisterClass.css
+│   │   │   └── FormRegisterClass.jsx
+│   │   ├── FormRegisterUsuario/
+│   │   │   ├── FormRegisterUsuario.css
+│   │   │   └── FormRegisterUsuario.jsx
+│   │   ├── Modal/
+│   │   └── Tables/
+│   ├── pages/            # Vistas de página completa
+│   ├── routes/           # Configuración de navegación
+│   ├── services/         # Servicios y llamadas a la API
+│   ├── App.css           # Estilos principales
+│   ├── App.js            # Componente raíz
+│   ├── index.css         # Estilos globales
+│   ├── index.js          # Punto de entrada de React
+│   ├── logo.svg
+│   ├── reportWebVitals.js
+│   └── setupTests.js
+├── .env.example          # Plantilla de variables de entorno
+├── .gitignore            # Archivos ignorados por Git
+├── package-lock.json     # Registro de versiones de dependencias
+├── package.json          # Configuración de scripts y dependencias
+└── README.md             # Documentación del proyecto
