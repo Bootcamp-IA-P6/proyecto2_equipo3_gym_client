@@ -21,7 +21,7 @@ facilitando la inscripción a clases y la visualización de datos en tiempo real
 ### 📦 Instalación
 ###  1️⃣ Instalar Node.js
 
-Descarga e instala Node.js desde la página oficial. [https://nodejs.org/es] (https://nodejs.org/es)
+Descarga e instala Node.js desde la página oficial. [Node.js] (https://nodejs.org/es)
 Una vez instalado, verifica la instalación abriendo una terminal y ejecutando:
 
 node -v
@@ -29,10 +29,9 @@ npm -v
 
 ### 2️⃣ Clonar el repositorio
 
-Desde la terminal, ubucate en la carpeta dodne quieres clonar el repo
+Desde la terminal, ubicate en la carpeta donde quieres clonar el repo
 
-git clone [https://github.com/Codigo-Inmersion/codigo-abisal-server.git
-cd codigo-abisal-server
+git clone [Github
 ](https://github.com/Bootcamp-IA-P6/proyecto2_equipo3_gym_client.git)
 
 ### 3️⃣ Instalar dependencias
