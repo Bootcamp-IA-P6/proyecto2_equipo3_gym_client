@@ -28,6 +28,13 @@ const deleteTrainer = async (id) => {
   const response = await api.delete(`/trainers/${id}`);
   return response.data;
 };
+const setTrainerActiveStatus = async (id, isActive) => {
+  // Según tu backend: PATCH /trainers/{id}/active?is_active=true
+  const response = await api.patch(`/trainers/${id}/active`, null, {
+    params: { is_active: isActive }
+  });
+  return response.data;
+};
 
 export default {
   getAllTrainers,
@@ -35,5 +42,6 @@ export default {
   getTrainersBySpecialty,
   createTrainer,
   updateTrainer,
-  deleteTrainer
+  deleteTrainer,
+  setTrainerActiveStatus
 };

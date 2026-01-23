@@ -1,0 +1,107 @@
+/* Contenedor de botones */
+.action-buttons {
+  display: flex;
+  gap: 10px; /* Espacio entre iconos */
+}
+
+/* Estilo base del botón (sin fondo gris feo) */
+.icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%; /* Redondo */
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Botón EDITAR (Azul/Turquesa) */
+.edit-btn {
+  color: #2DD4BF; /* Tu turquesa */
+  border: 1px solid transparent;
+}
+
+.edit-btn:hover {
+  background-color: rgba(45, 212, 191, 0.1);
+  transform: scale(1.1);
+}
+
+/* Botón ELIMINAR (Rojo) */
+.delete-btn {
+  color: #ff6b6b;
+  border: 1px solid transparent;
+}
+
+.delete-btn:hover {
+  background-color: rgba(255, 107, 107, 0.1);
+  transform: scale(1.1);
+  color: #ff4c4c;
+}
+
+/* Badge base */
+.status-badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Estado ACTIVO (Verde Turquesa) */
+.status-badge.active {
+  background-color: rgba(45, 212, 191, 0.15);
+  color: #2DD4BF;
+  border: 1px solid rgba(45, 212, 191, 0.3);
+}
+
+/* Estado INACTIVO (Rojo) - ¡ESTO ES LO QUE NECESITAS! */
+.status-badge.inactive {
+  background-color: rgba(255, 107, 107, 0.15);
+  color: #ff6b6b;
+  border: 1px solid rgba(255, 107, 107, 0.3);
+}
+.admin-table th:nth-child(4), 
+.admin-table td:nth-child(4) {
+  width: 180px;      /* Forzamos un ancho pequeño */
+  max-width: 180px;
+  min-width: 120px;
+}
+
+.classes-list-cell {
+  display: flex;
+  flex-wrap: wrap;   /* Las clases bajarán a la siguiente línea si no caben */
+  gap: 6px;          /* Un poco más de espacio entre etiquetas */
+  justify-content: flex-start;
+}
+
+.class-tag {
+  background: rgba(45, 212, 191, 0.1);
+  color: #2DD4BF;
+  padding: 3px 8px;  /* Reducido un poco el padding */
+  border-radius: 6px;
+  font-size: 0.75rem; /* Fuente ligeramente más pequeña */
+  font-weight: bold;
+  border: 1px solid rgba(45, 212, 191, 0.2);
+  display: inline-block;
+  white-space: nowrap; /* Evita que el nombre de una sola clase se parta */
+}
+
+.no-classes {
+  color: #666;
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+.class-tag {
+  background: rgba(45, 212, 191, 0.1);
+  color: #2DD4BF;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin: 2px;
+  display: inline-block;
+}

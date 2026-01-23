@@ -7,8 +7,8 @@ import HomePage from '../pages/HomePage/HomePage';
 import LoginPage from '../pages/LoginPage/LoginPage';
 import AdminSidebar from '../pages/AdminSidebar/AdminSidebar';
 import UserPage from '../pages/UserPage/UserPage'; 
-// 1. IMPORTA TU PÁGINA DE CLASES (Corregido a ../pages/)
 import ClassPage from '../pages/ClassPage/ClassPage'; 
+import TrainerPage from '../pages/Trainers/TrainerPage';
 
 const AppRouter = () => {
   return (
@@ -30,11 +30,9 @@ const AppRouter = () => {
         <Route index element={<Navigate to="usuarios" replace />} />
         
         {/* Ruta de Usuarios */}
-        <Route path="usuarios" element={<UserPage />} />
-        
-        {/* 2. RUTA DE CLASES: Asegúrate que el path sea 'clases' 
-               para que coincida con tu AdminSidebar.jsx */}
+        <Route path="usuarios" element={<UserPage />} /> 
         <Route path="clases" element={<ClassPage />} />
+        <Route path="entrenadores" element={<TrainerPage />} />
 
       </Route>
 

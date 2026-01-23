@@ -1,6 +1,8 @@
 import api from './api';
 
-// 1. Obtener todas las clases (con skip y limit por si el backend lo requiere)
+
+const BASE_URL = '/gym-classes'; 
+
 const getAllClasses = async (skip = 0, limit = 100) => {
   const response = await api.get('/gym-classes/', { params: { skip, limit } });
   return response.data;

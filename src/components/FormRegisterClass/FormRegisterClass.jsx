@@ -1,83 +1,93 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import classService from '../../services/classService';
 import './FormRegisterClass.css';
 
-const FormRegisterClass = ({ isOpen, onClose, onRefresh }) => {
-  const navigate = useNavigate();
+
+const FormRegisterClass = ({ onSuccess, onClose, classToEdit }) => {
   const [formData, setFormData] = useState({
     name: '',
     description: '',
   });
+  const [loading, setLoading] = useState(false);
 
-  if (!isOpen) return null;
+ 
+  useEffect(() => {
+    if (classToEdit) {
+      setFormData({
+        name: classToEdit.name || '',
+        description: classToEdit.description || '',
+      });
+    }
+  }, [classToEdit]);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      // 1. Intentamos guardar con la nueva ruta /gym_classes/ del servicio
-      await classService.createClass(formData);
-      
-      // 2. Si tiene éxito, ejecutamos el refresco de la tabla (el puente)
-      if (onRefresh) onRefresh(); 
-      
-      // 3. Cerramos el modal
-      onClose();                  
-      
-      // 4. Redirección: Según tu AdminSidebar, la ruta es /admin/clases
-      navigate('/AdminSidebar/clases'); 
-      
-      // 5. Limpiamos el formulario
-      setFormData({ name: '', description: '' });
-      
-      console.log("Clase creada con éxito");
-    } catch (error) {
-      console.error("Error al crear clase:", error);
-      // Detalle para depuración
-      if (error.response && error.response.status === 404) {
-        alert("Error 404: El servidor no reconoce la ruta /gym_classes/. Verifica con tus compañeros si falta un prefijo como /api.");
+      if (classToEdit) {
+        
+        await classService.updateClass(classToEdit.id, formData);
+        alert('Clase actualizada correctamente');
       } else {
-        alert("Ocurrió un error al intentar guardar la disciplina.");
+        // --- MODO CREACIÓN ---
+        await classService.createClass(formData);
+        alert('Clase creada con éxito');
       }
+      
+      setLoading(false);
+      if (onSuccess) onSuccess();
+      if (onClose) onClose();
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+      alert('Error al guardar la clase');
     }
   };
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-card" onClick={(e) => e.stopPropagation()}>
-        <div className="modal-header">
-          <h2>Registrar Clase</h2>
-        </div>
-        <form onSubmit={handleSubmit} className="modal-form">
-          <div className="form-input-group">
-            <label>Nombre de la Disciplina</label>
+    <div className="register-container">
+      <header className="register-header">
+        <h1>{classToEdit ? 'Editar Clase' : 'Nueva Clase'}</h1>
+        <p>{classToEdit ? 'Modifica los detalles de la actividad' : 'Añade una nueva actividad al catálogo'}</p>
+      </header>
+
+      <form onSubmit={handleSubmit}>
+        <div className="form-grid">
+          <div className="input-box full-width">
+            <label>Nombre de la Clase</label>
             <input 
               type="text" 
+              name="name" 
+              placeholder="Ej: Crossfit Avanzado" 
               required 
-              placeholder="Ej. Yoga, Boxeo..."
-              value={formData.name}
-              onChange={(e) => setFormData({...formData, name: e.target.value})}
+              value={formData.name} 
+              onChange={handleChange} 
             />
           </div>
-          <div className="form-input-group">
+
+          <div className="input-box full-width">
             <label>Descripción</label>
             <textarea 
-              required 
-              placeholder="Describe brevemente la actividad..."
-              value={formData.description}
-              onChange={(e) => setFormData({...formData, description: e.target.value})}
+              name="description" 
+              placeholder="¿En qué consiste esta actividad?"
+              value={formData.description} 
+              onChange={handleChange} 
+              rows="4"
             />
           </div>
-          <div className="modal-footer-actions">
-            <button type="button" onClick={onClose} className="btn-secondary">
-              Descartar
-            </button>
-            <button type="submit" className="btn-primary">
-              Guardar Disciplina
-            </button>
-          </div>
-        </form>
-      </div>
+        </div>
+
+        <div className="register-actions">
+          <button type="button" className="back-btn" onClick={onClose}>Cancelar</button>
+          <button type="submit" className="save-user-btn" disabled={loading}>
+            {loading ? 'Guardando...' : (classToEdit ? 'Actualizar' : 'Crear Clase')}
+          </button>
+        </div>
+      </form>
     </div>
   );
 };
