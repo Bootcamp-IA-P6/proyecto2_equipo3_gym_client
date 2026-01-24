@@ -24,9 +24,11 @@ const logout = () => {
   return response.data;
 };
 */
-
-export default {
+const authService = {
   login,
   logout,
-  // getCurrentUser, // Descomentar cuando exista el endpoint
 };
+
+
+export default authService;
+ 

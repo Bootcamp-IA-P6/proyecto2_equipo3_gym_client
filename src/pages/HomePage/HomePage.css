@@ -74,3 +74,45 @@
   opacity: 0.9;
  
 }
+
+/* Ajustes para Tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .main-title {
+    font-size: 60px;
+  }
+  .subtitle {
+    font-size: 25px;
+    letter-spacing: 8px;
+  }
+}
+
+/* Ajustes para Móviles (max-width: 768px) */
+@media (max-width: 768px) {
+  .top-left-buttons {
+    top: 20px;
+    right: 20px;
+    gap: 10px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 10px;
+  }
+
+  .title-group {
+    right: 20px;
+    align-items: center; /* Centramos en móvil para mejor lectura */
+    width: calc(100% - 40px);
+    text-align: center;
+  }
+
+  .main-title {
+    font-size: 45px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    letter-spacing: 5px;
+  }
+}
+
