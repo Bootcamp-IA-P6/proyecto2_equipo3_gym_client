@@ -29,7 +29,7 @@ const activateUser = async (id) => {
   return response.data;
 };
 
-export default {
+const userService = {
   getAllUsers,
   getUserById,
   createUser,
@@ -37,3 +37,5 @@ export default {
   deleteUser,
   activateUser
 };
+
+export default userService;
