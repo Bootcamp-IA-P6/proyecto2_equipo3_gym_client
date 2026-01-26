@@ -1,8 +1,6 @@
 import api from './api';
 
 
-const BASE_URL = '/gym-classes'; 
-
 const getAllClasses = async (skip = 0, limit = 100) => {
   const response = await api.get('/gym-classes/', { params: { skip, limit } });
   return response.data;
@@ -34,10 +32,12 @@ const deleteClass = async (id) => {
 };
 
 // Exportamos igual que en trainers
-export default {
+const classService = {
   getAllClasses,
   getClassById,
   createClass,
   updateClass,
   deleteClass
 };
+
+export default classService;

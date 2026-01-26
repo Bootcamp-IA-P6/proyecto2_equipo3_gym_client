@@ -36,7 +36,7 @@ const setTrainerActiveStatus = async (id, isActive) => {
   return response.data;
 };
 
-export default {
+const trainerService = {
   getAllTrainers,
   getTrainerById,
   getTrainersBySpecialty,
@@ -45,3 +45,5 @@ export default {
   deleteTrainer,
   setTrainerActiveStatus
 };
+
+export default trainerService;

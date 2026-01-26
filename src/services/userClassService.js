@@ -30,9 +30,11 @@ const cancelEnrollment = async (id) => {
   return response.data;
 };
 
-export default {
+const userClassService = {
   enrollUser,
   getAllEnrollments,
   cancelEnrollment,
   getAllUserClasses
 };
+
+export default userClassService;

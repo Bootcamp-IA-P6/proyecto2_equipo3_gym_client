@@ -105,3 +105,22 @@
   margin: 2px;
   display: inline-block;
 }
+
+.dashboard-card {
+  background-color: #1a1a1a;
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid #333;
+  overflow-x: auto; /* PERMITE SCROLL HORIZONTAL SI LA TABLA ES MUY ANCHA */
+}
+
+@media (max-width: 768px) {
+  .dashboard-card {
+    padding: 10px;
+  }
+  
+  /* Hacemos los botones de acción un poco más grandes para dedos (touch) */
+  .icon-btn {
+    padding: 12px;
+  }
+}

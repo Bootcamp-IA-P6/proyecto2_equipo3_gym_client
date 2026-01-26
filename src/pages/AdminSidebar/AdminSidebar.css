@@ -149,3 +149,57 @@
   padding: 20px;
   border: 1px solid #333;
 }
+
+@media (max-width: 768px) {
+  .admin-container {
+    flex-direction: column; /* Apila el menú arriba y el contenido abajo */
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative; /* Deja de ser fijo */
+    padding: 15px;
+    border-right: none;
+    border-bottom: 1px solid #333;
+    flex-direction: row; /* Elementos en línea */
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .sidebar-logo {
+    margin-bottom: 0;
+    font-size: 20px;
+  }
+
+  .sidebar-nav {
+    flex-direction: row; /* Menú horizontal */
+    gap: 5px;
+  }
+
+  .nav-item {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .nav-item span {
+    display: none; /* Oculta el texto, deja solo los iconos en móvil */
+  }
+
+  .logout-btn-f {
+    margin-top: 0;
+    padding: 8px;
+  }
+
+  .main-content {
+    margin-left: 0; /* Eliminamos el margen del sidebar */
+    padding: 15px;
+    width: 100%;
+  }
+
+  .content-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+}
