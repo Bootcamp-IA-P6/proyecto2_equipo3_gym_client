@@ -2,7 +2,7 @@
 #
 
 ### 📋 Descripción
-**GYMPRO** Client es la interfaz de usuario moderna y reactiva diseñada para la gestión integral de gimnasios. Esta aplicación permite a los administradores y entrenadores gestionar el flujo de usuarios y clases de forma visual. Se conecta de manera eficiente a una API construida en Node.js para garantizar la persistencia de datos y seguridad. plataforma interactiva para la administración de entrenamientos y usuarios
+**GYMPRO** Client es la interfaz de usuario moderna y reactiva diseñada para la gestión integral de gimnasios. Esta aplicación permite a los administradores y entrenadores gestionar el flujo de usuarios y clases de forma visual. Se conecta de manera eficiente a una API construida en Node.js para garantizar la persistencia de datos y seguridad. plataforma interactiva para la administración de entrenamientos y usuarios.
 
 
 ![React](https://img.shields.io/badge/REACT-18-61DAFB?style=for-the-badge&logo=react&logoColor=white)
@@ -78,7 +78,6 @@ El manejo centralizado de tokens JWT en el cliente permite proteger rutas, contr
 | **Servidor ASGI** | Uvicorn |
 
 ---
-
 ## 📦 Instalación
 
 ### 1️⃣ Instalar Node.js
